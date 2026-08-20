@@ -1,0 +1,116 @@
+.loader {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.loader div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid;
+  border-radius: 50%;
+  animation: loader 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: transparent;
+}
+
+.loader div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+
+.loader div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.loader div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.size-small {
+  width: 40px;
+  height: 40px;
+}
+
+.size-small div {
+  width: 32px;
+  height: 32px;
+  margin: 4px;
+  border-width: 4px;
+}
+
+.size-medium {
+  width: 80px;
+  height: 80px;
+}
+
+.size-medium div {
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-width: 8px;
+}
+
+.size-large {
+  width: 120px;
+  height: 120px;
+}
+
+.size-large div {
+  width: 96px;
+  height: 96px;
+  margin: 12px;
+  border-width: 12px;
+}
+
+.color-primary {
+  border-color: #FFD700;
+}
+
+.color-primary div {
+  border-color: #FFD700 transparent transparent transparent;
+}
+
+.color-secondary {
+  border-color: #00FFFF;
+}
+
+.color-secondary div {
+  border-color: #00FFFF transparent transparent transparent;
+}
+
+.color-accent-pink {
+  border-color: #FF69B4;
+}
+
+.color-accent-pink div {
+  border-color: #FF69B4 transparent transparent transparent;
+}
+
+.color-accent-purple {
+  border-color: #800080;
+}
+
+.color-accent-purple div {
+  border-color: #800080 transparent transparent transparent;
+}
+
+.color-accent-orange {
+  border-color: #FFA500;
+}
+
+.color-accent-orange div {
+  border-color: #FFA500 transparent transparent transparent;
+}

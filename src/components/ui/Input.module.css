@@ -1,0 +1,29 @@
+.inputContainer {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.input {
+  padding: 0.5rem 1rem;
+  border: 2px solid black;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  width: 100%;
+}
+
+.input:focus {
+  outline: none;
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.icon {
+  position: absolute;
+  left: 0.75rem;
+  color: #6B7280;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

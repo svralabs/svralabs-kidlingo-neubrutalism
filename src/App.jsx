@@ -4,30 +4,18 @@ import { AuthProvider } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
 import { ThemeProvider } from './context/ThemeContext';
 import ErrorBoundary from './components/ErrorBoundary';
-import ThirtySpaceHero from './pages/ThirtySpaceHero';
-import JastipCatalogJepangTrip1 from './pages/JastipCatalogJepangTrip1';
-import ThirtySpaceBadgeShowcase from './pages/ThirtySpaceBadgeShowcase';
-import ThirtySpaceLoaderShowcase from './pages/ThirtySpaceLoaderShowcase';
-import ThirtySpace404 from './pages/ThirtySpace404';
-import ThirtySpaceTableShowcase from './pages/ThirtySpaceTableShowcase';
+import Home from './pages/Home';
+import AuthPage from './pages/AuthPage';
+import NotFound from './pages/NotFound';
 import JastipOrderForm from './pages/JastipOrderForm';
-import JastipHome from './pages/JastipHome';
-import ThirtySpaceAuth from './pages/ThirtySpaceAuth';
-import ThirtySpaceSidebarShowcase from './pages/ThirtySpaceSidebarShowcase';
 
 function ScreenBar() {
   const loc = useLocation();
   const navs = [
-    { path: '/', label: 'ThirtySpaceHero' },
-    { path: '/jastipcatalogjepangtrip1', label: 'JastipCatalogJepangTrip1' },
-    { path: '/thirtyspacebadgeshowcase', label: 'ThirtySpaceBadgeShowcase' },
-    { path: '/thirtyspaceloadershowcase', label: 'ThirtySpaceLoaderShowcase' },
-    { path: '/thirtyspace404', label: 'ThirtySpace404' },
-    { path: '/thirtyspacetableshowcase', label: 'ThirtySpaceTableShowcase' },
-    { path: '/jastiporderform', label: 'JastipOrderForm' },
-    { path: '/jastiphome', label: 'JastipHome' },
-    { path: '/thirtyspaceauth', label: 'ThirtySpaceAuth' },
-    { path: '/thirtyspacesidebarshowcase', label: 'ThirtySpaceSidebarShowcase' }
+    { path: '/', label: 'Home' },
+    { path: '/authpage', label: 'AuthPage' },
+    { path: '/notfound', label: 'NotFound' },
+    { path: '/jastiporderform', label: 'JastipOrderForm' }
   ];
 
   return (
@@ -63,17 +51,11 @@ export default function App() {
               <ScreenBar />
               <div className="pt-10 min-h-screen">
                 <Routes>
-                  <Route path='/' element={<ThirtySpaceHero />} />
-        <Route path='/jastipcatalogjepangtrip1' element={<JastipCatalogJepangTrip1 />} />
-        <Route path='/thirtyspacebadgeshowcase' element={<ThirtySpaceBadgeShowcase />} />
-        <Route path='/thirtyspaceloadershowcase' element={<ThirtySpaceLoaderShowcase />} />
-        <Route path='/thirtyspace404' element={<ThirtySpace404 />} />
-        <Route path='/thirtyspacetableshowcase' element={<ThirtySpaceTableShowcase />} />
+                  <Route path='/' element={<Home />} />
+        <Route path='/authpage' element={<AuthPage />} />
+        <Route path='/notfound' element={<NotFound />} />
         <Route path='/jastiporderform' element={<JastipOrderForm />} />
-        <Route path='/jastiphome' element={<JastipHome />} />
-        <Route path='/thirtyspaceauth' element={<ThirtySpaceAuth />} />
-        <Route path='/thirtyspacesidebarshowcase' element={<ThirtySpaceSidebarShowcase />} />
-                  <Route path="*" element={<ThirtySpaceHero />} />
+                  <Route path="*" element={<Home />} />
                 </Routes>
               </div>
             </BrowserRouter>
