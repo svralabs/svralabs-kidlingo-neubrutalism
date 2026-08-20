@@ -1,76 +1,66 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';
-import { CartProvider } from './context/CartContext';
-import { ThemeProvider } from './context/ThemeContext';
-import ErrorBoundary from './components/ErrorBoundary';
-import ThirtySpaceHero from './pages/ThirtySpaceHero';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import JastipOrderFormMobile from './pages/JastipOrderFormMobile';
+import ThirtyspaceTableShowcase from './pages/ThirtyspaceTableShowcase';
+import JastipHomeScreenMobile from './pages/JastipHomeScreenMobile';
+import ThirtyspaceHeroSection from './pages/ThirtyspaceHeroSection';
+import ThirtyspaceSidebarShowcase from './pages/ThirtyspaceSidebarShowcase';
 import JastipCatalogJepangTrip1 from './pages/JastipCatalogJepangTrip1';
-import ThirtySpaceShowcase from './pages/ThirtySpaceShowcase';
-import NotFound from './pages/NotFound';
-import JastipOrderForm from './pages/JastipOrderForm';
-import JastipHome from './pages/JastipHome';
-import LoginRegister from './pages/LoginRegister';
-
-function ScreenBar() {
-  const loc = useLocation();
-  const navs = [
-    { path: '/', label: 'ThirtySpaceHero' },
-    { path: '/jastipcatalogjepangtrip1', label: 'JastipCatalogJepangTrip1' },
-    { path: '/thirtyspaceshowcase', label: 'ThirtySpaceShowcase' },
-    { path: '/notfound', label: 'NotFound' },
-    { path: '/jastiporderform', label: 'JastipOrderForm' },
-    { path: '/jastiphome', label: 'JastipHome' },
-    { path: '/loginregister', label: 'LoginRegister' }
-  ];
-
-  return (
-    <div className="fixed top-2 left-1/2 -translate-x-1/2 z-50 bg-slate-900/90 backdrop-blur-md border border-slate-700/60 rounded-full px-3 py-1.5 shadow-2xl flex items-center gap-1.5 overflow-x-auto max-w-[95vw]">
-      <span className="text-[10px] font-bold text-violet-400 uppercase tracking-widest px-2 hidden sm:inline">Screens:</span>
-      {navs.map((n) => {
-        const active = loc.pathname === n.path;
-        return (
-          <Link
-            key={n.path}
-            to={n.path}
-            className={`px-3 py-1 text-xs font-semibold rounded-full transition-all whitespace-nowrap ${
-              active
-                ? 'bg-violet-600 text-white shadow-md shadow-violet-500/30'
-                : 'text-slate-300 hover:text-white hover:bg-slate-800'
-            }`}
-          >
-            {n.label}
-          </Link>
-        );
-      })}
-    </div>
-  );
-}
+import ThirtyspaceLoaderShowcase from './pages/ThirtyspaceLoaderShowcase';
+import ThirtyspaceLoginRegisterMobile from './pages/ThirtyspaceLoginRegisterMobile';
+import ThirtyspaceBadgeShowcase from './pages/ThirtyspaceBadgeShowcase';
+import Thirtyspace404NavigationBentoVariant from './pages/Thirtyspace404NavigationBentoVariant';
+import JastipCatalogJepangTrip2 from './pages/JastipCatalogJepangTrip2';
+import ThirtyspaceButtonShowcase from './pages/ThirtyspaceButtonShowcase';
+import ThirtyspaceComponentShowcaseInputs from './pages/ThirtyspaceComponentShowcaseInputs';
 
 export default function App() {
   return (
-    <ErrorBoundary>
-      <AuthProvider>
-        <CartProvider>
-          <ThemeProvider>
-            <BrowserRouter>
-              <ScreenBar />
-              <div className="pt-10 min-h-screen">
-                <Routes>
-                  <Route path='/' element={<ThirtySpaceHero />} />
-        <Route path='/jastipcatalogjepangtrip1' element={<JastipCatalogJepangTrip1 />} />
-        <Route path='/thirtyspaceshowcase' element={<ThirtySpaceShowcase />} />
-        <Route path='/notfound' element={<NotFound />} />
-        <Route path='/jastiporderform' element={<JastipOrderForm />} />
-        <Route path='/jastiphome' element={<JastipHome />} />
-        <Route path='/loginregister' element={<LoginRegister />} />
-                  <Route path="*" element={<ThirtySpaceHero />} />
-                </Routes>
-              </div>
-            </BrowserRouter>
-          </ThemeProvider>
-        </CartProvider>
-      </AuthProvider>
-    </ErrorBoundary>
+    <BrowserRouter>
+      <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-indigo-500 selection:text-white">
+        {/* Navigation Header for Multi-Screen Stitch Pages */}
+        <header className="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800 px-6 py-3 flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <div className="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></div>
+            <span className="font-bold text-sm tracking-wide text-white capitalize">kidlingo-neubrutalism</span>
+          </div>
+          <nav className="flex items-center space-x-2 overflow-x-auto py-1">
+            <Link to="/" className="px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-white/10 transition">Jastip Order Form Mobile</Link>
+            <Link to="/thirtyspace-table-showcase" className="px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-white/10 transition">Thirtyspace Table Showcase</Link>
+            <Link to="/jastip-home-screen-mobile" className="px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-white/10 transition">Jastip Home Screen Mobile</Link>
+            <Link to="/thirtyspace-hero-section" className="px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-white/10 transition">Thirtyspace Hero Section</Link>
+            <Link to="/thirtyspace-sidebar-showcase" className="px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-white/10 transition">Thirtyspace Sidebar Showcase</Link>
+            <Link to="/jastip-catalog-jepang-trip-1" className="px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-white/10 transition">Jastip Catalog Jepang Trip 1</Link>
+            <Link to="/thirtyspace-loader-showcase" className="px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-white/10 transition">Thirtyspace Loader Showcase</Link>
+            <Link to="/thirtyspace-login-register-mobile" className="px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-white/10 transition">Thirtyspace Login Register Mobile</Link>
+            <Link to="/thirtyspace-badge-showcase" className="px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-white/10 transition">Thirtyspace Badge Showcase</Link>
+            <Link to="/thirtyspace-404-navigation-bento-variant" className="px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-white/10 transition">Thirtyspace 404 Navigation Bento Variant</Link>
+            <Link to="/jastip-catalog-jepang-trip-2" className="px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-white/10 transition">Jastip Catalog Jepang Trip 2</Link>
+            <Link to="/thirtyspace-button-showcase" className="px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-white/10 transition">Thirtyspace Button Showcase</Link>
+            <Link to="/thirtyspace-component-showcase-inputs" className="px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-white/10 transition">Thirtyspace Component Showcase Inputs</Link>
+          </nav>
+        </header>
+
+        {/* Dynamic Routed Pages */}
+        <main className="flex-1 w-full">
+          <Routes>
+          <Route path="/" element={<JastipOrderFormMobile />} />
+          <Route path="/thirtyspace-table-showcase" element={<ThirtyspaceTableShowcase />} />
+          <Route path="/jastip-home-screen-mobile" element={<JastipHomeScreenMobile />} />
+          <Route path="/thirtyspace-hero-section" element={<ThirtyspaceHeroSection />} />
+          <Route path="/thirtyspace-sidebar-showcase" element={<ThirtyspaceSidebarShowcase />} />
+          <Route path="/jastip-catalog-jepang-trip-1" element={<JastipCatalogJepangTrip1 />} />
+          <Route path="/thirtyspace-loader-showcase" element={<ThirtyspaceLoaderShowcase />} />
+          <Route path="/thirtyspace-login-register-mobile" element={<ThirtyspaceLoginRegisterMobile />} />
+          <Route path="/thirtyspace-badge-showcase" element={<ThirtyspaceBadgeShowcase />} />
+          <Route path="/thirtyspace-404-navigation-bento-variant" element={<Thirtyspace404NavigationBentoVariant />} />
+          <Route path="/jastip-catalog-jepang-trip-2" element={<JastipCatalogJepangTrip2 />} />
+          <Route path="/thirtyspace-button-showcase" element={<ThirtyspaceButtonShowcase />} />
+          <Route path="/thirtyspace-component-showcase-inputs" element={<ThirtyspaceComponentShowcaseInputs />} />
+          <Route path="*" element={<JastipOrderFormMobile />} />
+          </Routes>
+        </main>
+      </div>
+    </BrowserRouter>
   );
 }
