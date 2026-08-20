@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function ThirtyspaceHero() {
+export default function ThirtySpaceHero() {
   const features = [
     { icon: 'view_kanban', title: 'SPRINT BOARD', tag: 'NEW', color: 'bg-primary-container' },
     { icon: 'video_call', title: 'VIDEO CALL', tag: 'HOT', color: 'bg-cyan-neubrutalist' },
@@ -8,14 +8,8 @@ export default function ThirtyspaceHero() {
     { icon: 'link', title: 'LINK HUB', tag: 'HUB', color: 'bg-purple-neubrutalist' }
   ];
 
-  const tickerItems = [
-    { icon: 'code', text: 'DEV TEAM ALPHA' },
-    { icon: 'mic', text: 'PODCAST ID' },
-    { icon: 'rocket_launch', text: 'STARTUP X' }
-  ];
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-background-variant">
+    <div className="min-h-screen bg-background">
       {/* TopNavBar */}
       <nav className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin py-sm bg-primary-container border-b-2 border-on-surface">
         <div className="flex items-center gap-sm">
@@ -35,15 +29,33 @@ export default function ThirtyspaceHero() {
       {/* Ticker Bar */}
       <div className="mt-[64px] bg-white border-b-2 border-on-surface overflow-hidden py-3">
         <div className="flex whitespace-nowrap animate-marquee">
-          {[...tickerItems, ...tickerItems].map((item, index) => (
-            <div key={index} className="flex items-center space-x-12 px-6">
-              <span className="font-label-bold text-label-bold flex items-center gap-2">
-                <span className="material-symbols-outlined text-sm">{item.icon}</span>
-                {item.text}
-              </span>
-              <span className="text-2xl font-bold">/</span>
-            </div>
-          ))}
+          <div className="flex items-center space-x-12 px-6">
+            <span className="font-label-bold text-label-bold flex items-center gap-2"><span className="material-symbols-outlined text-sm">code</span> DEV TEAM ALPHA</span>
+            <span className="text-2xl font-bold">/</span>
+            <span className="font-label-bold text-label-bold flex items-center gap-2"><span className="material-symbols-outlined text-sm">mic</span> PODCAST ID</span>
+            <span className="text-2xl font-bold">/</span>
+            <span className="font-label-bold text-label-bold flex items-center gap-2"><span className="material-symbols-outlined text-sm">rocket_launch</span> STARTUP X</span>
+            <span className="text-2xl font-bold">/</span>
+            <span className="font-label-bold text-label-bold flex items-center gap-2"><span className="material-symbols-outlined text-sm">code</span> DEV TEAM ALPHA</span>
+            <span className="text-2xl font-bold">/</span>
+            <span className="font-label-bold text-label-bold flex items-center gap-2"><span className="material-symbols-outlined text-sm">mic</span> PODCAST ID</span>
+            <span className="text-2xl font-bold">/</span>
+            <span className="font-label-bold text-label-bold flex items-center gap-2"><span className="material-symbols-outlined text-sm">rocket_launch</span> STARTUP X</span>
+          </div>
+          {/* Duplicated for seamless loop */}
+          <div className="flex items-center space-x-12 px-6">
+            <span className="font-label-bold text-label-bold flex items-center gap-2"><span className="material-symbols-outlined text-sm">code</span> DEV TEAM ALPHA</span>
+            <span className="text-2xl font-bold">/</span>
+            <span className="font-label-bold text-label-bold flex items-center gap-2"><span className="material-symbols-outlined text-sm">mic</span> PODCAST ID</span>
+            <span className="text-2xl font-bold">/</span>
+            <span className="font-label-bold text-label-bold flex items-center gap-2"><span className="material-symbols-outlined text-sm">rocket_launch</span> STARTUP X</span>
+            <span className="text-2xl font-bold">/</span>
+            <span className="font-label-bold text-label-bold flex items-center gap-2"><span className="material-symbols-outlined text-sm">code</span> DEV TEAM ALPHA</span>
+            <span className="text-2xl font-bold">/</span>
+            <span className="font-label-bold text-label-bold flex items-center gap-2"><span className="material-symbols-outlined text-sm">mic</span> PODCAST ID</span>
+            <span className="text-2xl font-bold">/</span>
+            <span className="font-label-bold text-label-bold flex items-center gap-2"><span className="material-symbols-outlined text-sm">rocket_launch</span> STARTUP X</span>
+          </div>
         </div>
       </div>
 
@@ -59,7 +71,7 @@ export default function ThirtyspaceHero() {
           </p>
         </div>
 
-        {/* Feature Grid */}
+        {/* Feature Grid (4 columns) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter mb-xl">
           {features.map((feature, index) => (
             <div key={index} className={`${feature.color} neubrutal-border neubrutal-shadow rounded-xl p-md flex flex-col justify-between h-48 hover-lift`}>
@@ -72,8 +84,9 @@ export default function ThirtyspaceHero() {
           ))}
         </div>
 
-        {/* Bento Preview Card */}
+        {/* Bento Preview Card (Large Wide) */}
         <div className="bg-white neubrutal-border neubrutal-shadow rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 min-h-[400px]">
+          {/* Left Info */}
           <div className="lg:col-span-5 p-12 flex flex-col justify-center border-b-2 lg:border-b-0 lg:border-r-2 border-on-surface">
             <div className="mb-6">
               <span className="bg-primary-container neubrutal-border px-4 py-1 rounded-full font-label-bold text-label-bold uppercase">
@@ -87,12 +100,14 @@ export default function ThirtyspaceHero() {
               <div className="w-12 h-12 rounded-full bg-gray-200 border-2 border-white"></div>
               <div className="w-12 h-12 rounded-full bg-gray-200 border-2 border-white"></div>
               <div className="w-12 h-12 rounded-full bg-gray-200 border-2 border-white"></div>
-              <span className="ml-4 font-label-bold text-label-bold">+ 100+ orang</span>
+              <span className="ml-4 font-label-bold text-label-bold">+1000 users</span>
             </div>
           </div>
+
+          {/* Right Preview */}
           <div className="lg:col-span-7 p-6 flex items-center justify-center">
-            <div className="w-full h-full bg-gray-100 rounded-lg flex items-center justify-center">
-              <span className="material-symbols-outlined text-6xl text-gray-400">image</span>
+            <div className="w-full h-full bg-gray-100 rounded-xl flex items-center justify-center">
+              <span className="material-symbols-outlined text-9xl text-gray-300">image</span>
             </div>
           </div>
         </div>

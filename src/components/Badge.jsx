@@ -1,30 +1,25 @@
 import React from 'react';
 
-export default function Badge({
-  children,
-  variant = 'status',
-  status = 'active',
-  count,
-  className = '',
-  ...props
-}) {
-  const baseClasses = 'inline-flex items-center justify-center rounded-full text-xs font-bold';
-  const variantClasses = {
-    status: {
-      active: 'bg-success-container text-on-success-container',
-      inactive: 'bg-error-container text-on-error-container',
-      warning: 'bg-warning-container text-on-warning-container',
-    },
-    count: 'bg-primary-container text-on-primary-container',
+const Badge = ({ text, color = 'purple', size = 'md' }) => {
+  const colorClasses = {
+    purple: 'bg-accent-purple',
+    orange: 'bg-accent-orange',
+    pink: 'bg-accent-pink',
+    green: 'bg-green-500',
+    gray: 'bg-gray-400',
   };
 
-  const badgeClasses = `${baseClasses} ${
-    variant === 'status' ? variantClasses.status[status] : variantClasses.count
-  } ${className}`;
+  const sizeClasses = {
+    sm: 'px-2 py-1 text-xs',
+    md: 'px-3 py-1 text-sm',
+    lg: 'px-4 py-2 text-base',
+  };
 
   return (
-    <span className={badgeClasses} {...props}>
-      {variant === 'status' ? children : count}
+    <span className={`inline-flex items-center ${colorClasses[color]} ${sizeClasses[size]} text-white border-2 border-black rounded-full font-label-bold`}>
+      {text}
     </span>
   );
-}
+};
+
+export default Badge;

@@ -1,42 +1,30 @@
 import React from 'react';
 
-export default function Table({
-  columns,
-  data,
-  striped = true,
-  hover = true,
-  className = '',
-  ...props
-}) {
+const Table = ({ data, columns }) => {
   return (
-    <div className={`overflow-x-auto ${className}`} {...props}>
-      <table className="w-full border-collapse">
+    <div className="overflow-x-auto brutalist-card">
+      <table className="w-full text-left border-collapse">
         <thead>
-          <tr className="bg-primary-container text-on-primary-container">
-            {columns.map((column) => (
+          <tr className="bg-primary-container border-b-2 border-black">
+            {columns.map((column, index) => (
               <th
-                key={column.key}
-                className="px-lg py-sm text-left font-label-bold text-label-bold uppercase tracking-tight border-b-2 border-black"
+                key={index}
+                className={`p-md font-label-bold text-on-primary-container uppercase ${index < columns.length - 1 ? 'border-r-2 border-black' : ''}`}
               >
-                {column.title}
+                {column.header}
               </th>
             ))}
           </tr>
         </thead>
-        <tbody>
-          {data.map((row, index) => (
-            <tr
-              key={row.id}
-              className={`${striped && index % 2 === 0 ? 'bg-surface' : 'bg-surface-variant'} ${
-                hover ? 'hover:bg-primary-container/10' : ''
-              }`}
-            >
-              {columns.map((column) => (
+        <tbody className="font-body-md">
+          {data.map((row, rowIndex) => (
+            <tr key={rowIndex} className="border-b-2 border-black last:border-b-0 hover:bg-background transition-colors">
+              {columns.map((column, colIndex) => (
                 <td
-                  key={column.key}
-                  className="px-lg py-sm border-b border-black"
+                  key={colIndex}
+                  className={`p-md ${colIndex < columns.length - 1 ? 'border-r-2 border-black' : ''}`}
                 >
-                  {row[column.key]}
+                  {column.cell(row)}
                 </td>
               ))}
             </tr>
@@ -45,4 +33,6 @@ export default function Table({
       </table>
     </div>
   );
-}
+};
+
+export default Table;

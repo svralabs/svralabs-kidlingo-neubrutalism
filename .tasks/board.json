@@ -1,24 +1,23 @@
 {
   "project_name": "svralabs-kidlingo-neubrutalism",
-  "architecture_summary": "Modular React app. Pages in src/pages/. Shared UI in src/components/. Neubrutalism CSS via Tailwind. Router: React Router. State: Zustand. No SSR. Mobile-first. Dark mode toggle via CSS vars. Ponytail: no i18n, add when >1 language needed.",
+  "architecture_summary": "Modular React app. Pages in src/pages/. Reusable UI components in src/components/. Neubrutalism CSS via Tailwind. React Router for navigation. Minimal state: local component state, no global store yet. Static mock data for screens. Responsive breakpoints match Stitch designs.",
   "tickets": [
     {
       "id": "TASK-001",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Jastip order form page (src/pages/JastipOrderForm.jsx)",
+      "title": "Build Jastip order form page (src/pages/JastipOrderForm.jsx)",
       "source_screen": "jastip_order_form_mobile",
-      "description": "Convert Stitch HTML to React. Form fields: item name, quantity, destination, notes. Submit button. Validation: required fields. Error states: inline. Success: toast via Zustand store. Ponytail: no backend integration, mock submit.",
+      "description": "Convert Stitch jastip_order_form_mobile to React. Form fields: item name, quantity, destination, notes, submit button. Neubrutalism styling: thick borders, bright colors, no rounded corners. Form validation: required fields, numeric quantity. Mock submission: log form data to console.",
       "target_files": [
         "src/pages/JastipOrderForm.jsx",
         "src/components/FormField.jsx"
       ],
       "acceptance_criteria": [
-        "Pixel-perfect match Stitch screen",
-        "Form validation on submit",
-        "Error messages below fields",
-        "Success toast appear after mock submit",
-        "Mobile responsive"
+        "Page match Stitch design pixel-perfect",
+        "Form fields validate on submit",
+        "Submit log form data to console",
+        "Responsive: mobile-first, tablet/desktop adapt"
       ],
       "status": "DONE"
     },
@@ -26,19 +25,17 @@
       "id": "TASK-002",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Jastip home screen page (src/pages/JastipHome.jsx)",
+      "title": "Build Jastip home screen page (src/pages/JastipHome.jsx)",
       "source_screen": "jastip_home_screen_mobile",
-      "description": "Convert Stitch HTML. Hero banner. Trip catalog grid. Search bar. Badges for trip status. Ponytail: no real data, static JSON in src/mocks/trips.json.",
+      "description": "Convert Stitch jastip_home_screen_mobile to React. Sections: hero banner, featured trips grid, search bar, category filters. Neubrutalism: bold typography, high-contrast colors, sharp edges. Static mock data for trips. Search/filter: client-side only, no API yet.",
       "target_files": [
         "src/pages/JastipHome.jsx",
-        "src/components/TripCard.jsx",
-        "src/mocks/trips.json"
+        "src/components/TripCard.jsx"
       ],
       "acceptance_criteria": [
-        "Pixel-perfect match Stitch screen",
-        "Search filter trips by name",
-        "Responsive grid 2 columns mobile, 4 desktop",
-        "Badges show correct status"
+        "Page match Stitch design pixel-perfect",
+        "Search/filter work client-side",
+        "Responsive: mobile-first, tablet/desktop adapt"
       ],
       "status": "DONE"
     },
@@ -46,19 +43,18 @@
       "id": "TASK-003",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Jastip catalog trip pages (src/pages/JastipCatalogTrip1.jsx, src/pages/JastipCatalogTrip2.jsx)",
+      "title": "Build Jastip catalog pages (src/pages/JastipCatalogJepangTrip1.jsx, src/pages/JastipCatalogJepangTrip2.jsx)",
       "source_screen": "jastip_catalog_jepang_trip_1, jastip_catalog_jepang_trip_2",
-      "description": "Convert both Stitch screens. Trip details: images, description, price, available slots. Booking CTA button. Ponytail: no real API, use same mock data as home screen.",
+      "description": "Convert Stitch jastip_catalog_jepang_trip_1 and jastip_catalog_jepang_trip_2 to React. Two pages: trip catalog with item cards, pagination. Neubrutalism: card shadows, border accents, bold CTAs. Static mock data for items. Pagination: client-side only, no API yet.",
       "target_files": [
-        "src/pages/JastipCatalogTrip1.jsx",
-        "src/pages/JastipCatalogTrip2.jsx",
-        "src/components/Gallery.jsx"
+        "src/pages/JastipCatalogJepangTrip1.jsx",
+        "src/pages/JastipCatalogJepangTrip2.jsx",
+        "src/components/ItemCard.jsx"
       ],
       "acceptance_criteria": [
-        "Pixel-perfect match both Stitch screens",
-        "Image gallery swipeable",
-        "Price format IDR",
-        "CTA button link to order form"
+        "Pages match Stitch designs pixel-perfect",
+        "Pagination work client-side",
+        "Responsive: mobile-first, tablet/desktop adapt"
       ],
       "status": "DONE"
     },
@@ -66,16 +62,27 @@
       "id": "TASK-004",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Thirtyspace hero section page (src/pages/ThirtyspaceHero.jsx)",
-      "source_screen": "thirtyspace_hero_section",
-      "description": "Convert Stitch HTML. Hero text. CTA buttons. Background image. Ponytail: no parallax, add when performance stable.",
+      "title": "Build ThirtySpace showcase pages (src/pages/ThirtySpaceTableShowcase.jsx, src/pages/ThirtySpaceSidebarShowcase.jsx, src/pages/ThirtySpaceLoaderShowcase.jsx, src/pages/ThirtySpaceBadgeShowcase.jsx, src/pages/ThirtySpaceButtonShowcase.jsx, src/pages/ThirtySpaceInputShowcase.jsx)",
+      "source_screen": "thirtyspace_table_showcase, thirtyspace_sidebar_showcase, thirtyspace_loader_showcase, thirtyspace_badge_showcase, thirtyspace_button_showcase, thirtyspace_component_showcase_inputs",
+      "description": "Convert Stitch component showcase screens to React. Reusable components: Table, Sidebar, Loader, Badge, Button, Input. Neubrutalism styling: consistent across components. Static mock data for tables. Components used in later pages.",
       "target_files": [
-        "src/pages/ThirtyspaceHero.jsx"
+        "src/pages/ThirtySpaceTableShowcase.jsx",
+        "src/pages/ThirtySpaceSidebarShowcase.jsx",
+        "src/pages/ThirtySpaceLoaderShowcase.jsx",
+        "src/pages/ThirtySpaceBadgeShowcase.jsx",
+        "src/pages/ThirtySpaceButtonShowcase.jsx",
+        "src/pages/ThirtySpaceInputShowcase.jsx",
+        "src/components/Table.jsx",
+        "src/components/Sidebar.jsx",
+        "src/components/Loader.jsx",
+        "src/components/Badge.jsx",
+        "src/components/Button.jsx",
+        "src/components/Input.jsx"
       ],
       "acceptance_criteria": [
-        "Pixel-perfect match Stitch screen",
-        "CTA buttons link to respective pages",
-        "Background image cover viewport"
+        "Pages match Stitch designs pixel-perfect",
+        "Components reusable across app",
+        "Responsive: mobile-first, tablet/desktop adapt"
       ],
       "status": "DONE"
     },
@@ -83,19 +90,16 @@
       "id": "TASK-005",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Thirtyspace login/register page (src/pages/LoginRegister.jsx)",
-      "source_screen": "thirtyspace_login_register_mobile",
-      "description": "Convert Stitch HTML. Tabs: login, register. Form fields: email, password, name (register only). Validation: required, email format. Error states: inline. Ponytail: no auth backend, mock success.",
+      "title": "Build ThirtySpace hero section page (src/pages/ThirtySpaceHero.jsx)",
+      "source_screen": "thirtyspace_hero_section",
+      "description": "Convert Stitch thirtyspace_hero_section to React. Hero section: headline, subheadline, CTA buttons, background image. Neubrutalism: bold typography, high-contrast colors, sharp edges. Static content. CTA buttons link to other pages.",
       "target_files": [
-        "src/pages/LoginRegister.jsx",
-        "src/components/AuthForm.jsx"
+        "src/pages/ThirtySpaceHero.jsx"
       ],
       "acceptance_criteria": [
-        "Pixel-perfect match Stitch screen",
-        "Tab switch work",
-        "Form validation on submit",
-        "Error messages below fields",
-        "Mock success redirect to home"
+        "Page match Stitch design pixel-perfect",
+        "CTA buttons navigate to correct pages",
+        "Responsive: mobile-first, tablet/desktop adapt"
       ],
       "status": "DONE"
     },
@@ -103,16 +107,17 @@
       "id": "TASK-006",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Thirtyspace 404 page (src/pages/NotFound.jsx)",
-      "source_screen": "thirtyspace_404_navigation_bento_variant",
-      "description": "Convert Stitch HTML. 404 text. Navigation bento grid. Ponytail: no analytics, add when tracking needed.",
+      "title": "Build ThirtySpace login/register page (src/pages/ThirtySpaceAuth.jsx)",
+      "source_screen": "thirtyspace_login_register_mobile",
+      "description": "Convert Stitch thirtyspace_login_register_mobile to React. Auth form: login/register tabs, email, password, submit button. Neubrutalism styling: thick borders, bright colors, no rounded corners. Form validation: required fields, email format. Mock submission: log form data to console.",
       "target_files": [
-        "src/pages/NotFound.jsx"
+        "src/pages/ThirtySpaceAuth.jsx"
       ],
       "acceptance_criteria": [
-        "Pixel-perfect match Stitch screen",
-        "Bento grid links work",
-        "Responsive layout"
+        "Page match Stitch design pixel-perfect",
+        "Form fields validate on submit",
+        "Submit log form data to console",
+        "Responsive: mobile-first, tablet/desktop adapt"
       ],
       "status": "DONE"
     },
@@ -120,22 +125,16 @@
       "id": "TASK-007",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Shared UI components (src/components/)",
-      "source_screen": "thirtyspace_button_showcase, thirtyspace_badge_showcase, thirtyspace_loader_showcase, thirtyspace_component_showcase_inputs, thirtyspace_sidebar_showcase, thirtyspace_table_showcase",
-      "description": "Extract reusable components from Stitch screens. Buttons: primary, secondary, danger. Badges: status, count. Loader: spinner. Inputs: text, textarea, select. Sidebar: collapsible. Table: striped, hover. Ponytail: no theming system, CSS vars for colors.",
+      "title": "Build ThirtySpace 404 page (src/pages/ThirtySpace404.jsx)",
+      "source_screen": "thirtyspace_404_navigation_bento_variant",
+      "description": "Convert Stitch thirtyspace_404_navigation_bento_variant to React. 404 page: error message, navigation links, bento layout. Neubrutalism: bold typography, high-contrast colors, sharp edges. Navigation links to key pages.",
       "target_files": [
-        "src/components/Button.jsx",
-        "src/components/Badge.jsx",
-        "src/components/Loader.jsx",
-        "src/components/Input.jsx",
-        "src/components/Sidebar.jsx",
-        "src/components/Table.jsx"
+        "src/pages/ThirtySpace404.jsx"
       ],
       "acceptance_criteria": [
-        "Components match Stitch showcase screens",
-        "Props for variants (e.g., Button primary/secondary)",
-        "Accessible: keyboard nav, ARIA labels",
-        "Responsive"
+        "Page match Stitch design pixel-perfect",
+        "Navigation links work",
+        "Responsive: mobile-first, tablet/desktop adapt"
       ],
       "status": "DONE"
     },
@@ -145,22 +144,21 @@
       "model": "hermes-auto",
       "title": "App shell, navigation bar, and router wiring (src/App.jsx)",
       "source_screen": "",
-      "description": "Create app shell. Navigation bar: logo, menu items, user avatar. Router: React Router. Routes: all pages from TASK-001 to TASK-006. Ponytail: no lazy loading, add when bundle >200KB. Dark mode toggle: CSS vars, Zustand store.",
+      "description": "Create app shell. Navigation bar: links to all pages. React Router: route setup for all pages. Neubrutalism styling: consistent across app. Responsive: mobile nav toggle, desktop nav bar. Error boundary: catch rendering errors, show user-friendly message.",
       "target_files": [
         "src/App.jsx",
         "src/components/Navbar.jsx",
-        "src/store/useThemeStore.js"
+        "src/components/ErrorBoundary.jsx"
       ],
       "acceptance_criteria": [
-        "All pages accessible via routes",
-        "Navigation bar sticky top",
-        "Active route highlighted",
-        "Dark mode toggle persist in localStorage",
-        "404 route catch-all"
+        "All pages accessible via navigation",
+        "Routes match page URLs",
+        "Responsive: mobile nav toggle work",
+        "Error boundary catch rendering errors"
       ],
       "status": "DONE"
     }
   ],
   "status": "IN_PROGRESS",
-  "updated_at": "2026-08-20 11:47:19"
+  "updated_at": "2026-08-20 13:45:39"
 }

@@ -4,24 +4,30 @@ import { AuthProvider } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
 import { ThemeProvider } from './context/ThemeContext';
 import ErrorBoundary from './components/ErrorBoundary';
-import JastipCatalogTrip1 from './pages/JastipCatalogTrip1';
-import JastipCatalogTrip2 from './pages/JastipCatalogTrip2';
-import NotFound from './pages/NotFound';
+import ThirtySpaceHero from './pages/ThirtySpaceHero';
+import JastipCatalogJepangTrip1 from './pages/JastipCatalogJepangTrip1';
+import ThirtySpaceBadgeShowcase from './pages/ThirtySpaceBadgeShowcase';
+import ThirtySpaceLoaderShowcase from './pages/ThirtySpaceLoaderShowcase';
+import ThirtySpace404 from './pages/ThirtySpace404';
+import ThirtySpaceTableShowcase from './pages/ThirtySpaceTableShowcase';
 import JastipOrderForm from './pages/JastipOrderForm';
 import JastipHome from './pages/JastipHome';
-import LoginRegister from './pages/LoginRegister';
-import ThirtyspaceHero from './pages/ThirtyspaceHero';
+import ThirtySpaceAuth from './pages/ThirtySpaceAuth';
+import ThirtySpaceSidebarShowcase from './pages/ThirtySpaceSidebarShowcase';
 
 function ScreenBar() {
   const loc = useLocation();
   const navs = [
-    { path: '/', label: 'JastipCatalogTrip1' },
-    { path: '/jastipcatalogtrip2', label: 'JastipCatalogTrip2' },
-    { path: '/notfound', label: 'NotFound' },
+    { path: '/', label: 'ThirtySpaceHero' },
+    { path: '/jastipcatalogjepangtrip1', label: 'JastipCatalogJepangTrip1' },
+    { path: '/thirtyspacebadgeshowcase', label: 'ThirtySpaceBadgeShowcase' },
+    { path: '/thirtyspaceloadershowcase', label: 'ThirtySpaceLoaderShowcase' },
+    { path: '/thirtyspace404', label: 'ThirtySpace404' },
+    { path: '/thirtyspacetableshowcase', label: 'ThirtySpaceTableShowcase' },
     { path: '/jastiporderform', label: 'JastipOrderForm' },
     { path: '/jastiphome', label: 'JastipHome' },
-    { path: '/loginregister', label: 'LoginRegister' },
-    { path: '/thirtyspacehero', label: 'ThirtyspaceHero' }
+    { path: '/thirtyspaceauth', label: 'ThirtySpaceAuth' },
+    { path: '/thirtyspacesidebarshowcase', label: 'ThirtySpaceSidebarShowcase' }
   ];
 
   return (
@@ -57,14 +63,17 @@ export default function App() {
               <ScreenBar />
               <div className="pt-10 min-h-screen">
                 <Routes>
-                  <Route path='/' element={<JastipCatalogTrip1 />} />
-        <Route path='/jastipcatalogtrip2' element={<JastipCatalogTrip2 />} />
-        <Route path='/notfound' element={<NotFound />} />
+                  <Route path='/' element={<ThirtySpaceHero />} />
+        <Route path='/jastipcatalogjepangtrip1' element={<JastipCatalogJepangTrip1 />} />
+        <Route path='/thirtyspacebadgeshowcase' element={<ThirtySpaceBadgeShowcase />} />
+        <Route path='/thirtyspaceloadershowcase' element={<ThirtySpaceLoaderShowcase />} />
+        <Route path='/thirtyspace404' element={<ThirtySpace404 />} />
+        <Route path='/thirtyspacetableshowcase' element={<ThirtySpaceTableShowcase />} />
         <Route path='/jastiporderform' element={<JastipOrderForm />} />
         <Route path='/jastiphome' element={<JastipHome />} />
-        <Route path='/loginregister' element={<LoginRegister />} />
-        <Route path='/thirtyspacehero' element={<ThirtyspaceHero />} />
-                  <Route path="*" element={<JastipCatalogTrip1 />} />
+        <Route path='/thirtyspaceauth' element={<ThirtySpaceAuth />} />
+        <Route path='/thirtyspacesidebarshowcase' element={<ThirtySpaceSidebarShowcase />} />
+                  <Route path="*" element={<ThirtySpaceHero />} />
                 </Routes>
               </div>
             </BrowserRouter>
