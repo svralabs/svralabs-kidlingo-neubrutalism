@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "title": "Jastip Bangkok July",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDBV9FmSzHmMElYvNkNaTfltT1RizeUA5MnOa_GeoMEzL0q6X1-O1T46f8mKsCvFRWrz6gwZWzBgSS7I1PGoSG62Pq2la4upprHhrMVGFWaVYgRgKmTp97BXSMBxjv9x6fEGY--PL0Krb3ueee-vkZnX8HZd3z-5bU3sxy8T--wqD6SrHXNbnP1DKpMsTrcdRqhx6mYHwqNITOHVpGvNMc9jaJY_HGD-__MPpQcDnZ_Y5LoJnx76ZFA",
+    "dates": "12–18 Jul 2026",
+    "status": "live",
+    "color": "bg-accent-pink"
+  },
+  {
+    "id": 2,
+    "title": "Tokyo Summer Haul",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcaaOGOzHT-EXDIW2kIpsuzjLU-qucF-5-XvOe5tI435Py-Fv4eJAhb0vTYU8ZlgBjaWKjXotacSwfH_h9wP3N_FNKvjcC0YFz_TexBrc6557xlzL2aCdkHkm22OFEEOPhAmqrMCyuSj039Jrq0Sl2PRan_KEPOj6Qpq6OqBKF0DHAhFXGeGYkJyLkPheJXl8KmwAwTlf8xmSOoNTukpbFoJuKbFb3BIDR8cWz1ITQ84y4S9YCKw4o",
+    "dates": "20–25 Jul 2026",
+    "status": "",
+    "color": "bg-accent-purple"
+  },
+  {
+    "id": 3,
+    "title": "Paris Fashion Week",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcaaOGOzHT-EXDIW2kIpsuzjLU-qucF-5-XvOe5tI435Py-Fv4eJAhb0vTYU8ZlgBjaWKjXotacSwfH_h9wP3N_FNKvjcC0YFz_TexBrc6557xlzL2aCdkHkm22OFEEOPhAmqrMCyuSj039Jrq0Sl2PRan_KEPOj6Qpq6OqBKF0DHAhFXGeGYkJyLkPheJXl8KmwAwTlf8xmSOoNTukpbFoJuKbFb3BIDR8cWz1ITQ84y4S9YCKw4o",
+    "dates": "1–7 Aug 2026",
+    "status": "",
+    "color": "bg-accent-blue"
+  },
+  {
+    "id": 4,
+    "title": "New York City Marathon",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDBV9FmSzHmMElYvNkNaTfltT1RizeUA5MnOa_GeoMEzL0q6X1-O1T46f8mKsCvFRWrz6gwZWzBgSS7I1PGoSG62Pq2la4upprHhrMVGFWaVYgRgKmTp97BXSMBxjv9x6fEGY--PL0Krb3ueee-vkZnX8HZd3z-5bU3sxy8T--wqD6SrHXNbnP1DKpMsTrcdRqhx6mYHwqNITOHVpGvNMc9jaJY_HGD-__MPpQcDnZ_Y5LoJnx76ZFA",
+    "dates": "5–10 Aug 2026",
+    "status": "",
+    "color": "bg-accent-green"
+  }
+]

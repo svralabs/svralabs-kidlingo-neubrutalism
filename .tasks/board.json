@@ -1,0 +1,166 @@
+{
+  "project_name": "svralabs-kidlingo-neubrutalism",
+  "architecture_summary": "Modular React app. Pages in src/pages/. Shared UI in src/components/. Neubrutalism CSS via Tailwind. Router: React Router. State: Zustand. No SSR. Mobile-first. Dark mode toggle via CSS vars. Ponytail: no i18n, add when >1 language needed.",
+  "tickets": [
+    {
+      "id": "TASK-001",
+      "role": "frontend",
+      "model": "hermes-auto",
+      "title": "Jastip order form page (src/pages/JastipOrderForm.jsx)",
+      "source_screen": "jastip_order_form_mobile",
+      "description": "Convert Stitch HTML to React. Form fields: item name, quantity, destination, notes. Submit button. Validation: required fields. Error states: inline. Success: toast via Zustand store. Ponytail: no backend integration, mock submit.",
+      "target_files": [
+        "src/pages/JastipOrderForm.jsx",
+        "src/components/FormField.jsx"
+      ],
+      "acceptance_criteria": [
+        "Pixel-perfect match Stitch screen",
+        "Form validation on submit",
+        "Error messages below fields",
+        "Success toast appear after mock submit",
+        "Mobile responsive"
+      ],
+      "status": "DONE"
+    },
+    {
+      "id": "TASK-002",
+      "role": "frontend",
+      "model": "hermes-auto",
+      "title": "Jastip home screen page (src/pages/JastipHome.jsx)",
+      "source_screen": "jastip_home_screen_mobile",
+      "description": "Convert Stitch HTML. Hero banner. Trip catalog grid. Search bar. Badges for trip status. Ponytail: no real data, static JSON in src/mocks/trips.json.",
+      "target_files": [
+        "src/pages/JastipHome.jsx",
+        "src/components/TripCard.jsx",
+        "src/mocks/trips.json"
+      ],
+      "acceptance_criteria": [
+        "Pixel-perfect match Stitch screen",
+        "Search filter trips by name",
+        "Responsive grid 2 columns mobile, 4 desktop",
+        "Badges show correct status"
+      ],
+      "status": "DONE"
+    },
+    {
+      "id": "TASK-003",
+      "role": "frontend",
+      "model": "hermes-auto",
+      "title": "Jastip catalog trip pages (src/pages/JastipCatalogTrip1.jsx, src/pages/JastipCatalogTrip2.jsx)",
+      "source_screen": "jastip_catalog_jepang_trip_1, jastip_catalog_jepang_trip_2",
+      "description": "Convert both Stitch screens. Trip details: images, description, price, available slots. Booking CTA button. Ponytail: no real API, use same mock data as home screen.",
+      "target_files": [
+        "src/pages/JastipCatalogTrip1.jsx",
+        "src/pages/JastipCatalogTrip2.jsx",
+        "src/components/Gallery.jsx"
+      ],
+      "acceptance_criteria": [
+        "Pixel-perfect match both Stitch screens",
+        "Image gallery swipeable",
+        "Price format IDR",
+        "CTA button link to order form"
+      ],
+      "status": "DONE"
+    },
+    {
+      "id": "TASK-004",
+      "role": "frontend",
+      "model": "hermes-auto",
+      "title": "Thirtyspace hero section page (src/pages/ThirtyspaceHero.jsx)",
+      "source_screen": "thirtyspace_hero_section",
+      "description": "Convert Stitch HTML. Hero text. CTA buttons. Background image. Ponytail: no parallax, add when performance stable.",
+      "target_files": [
+        "src/pages/ThirtyspaceHero.jsx"
+      ],
+      "acceptance_criteria": [
+        "Pixel-perfect match Stitch screen",
+        "CTA buttons link to respective pages",
+        "Background image cover viewport"
+      ],
+      "status": "DONE"
+    },
+    {
+      "id": "TASK-005",
+      "role": "frontend",
+      "model": "hermes-auto",
+      "title": "Thirtyspace login/register page (src/pages/LoginRegister.jsx)",
+      "source_screen": "thirtyspace_login_register_mobile",
+      "description": "Convert Stitch HTML. Tabs: login, register. Form fields: email, password, name (register only). Validation: required, email format. Error states: inline. Ponytail: no auth backend, mock success.",
+      "target_files": [
+        "src/pages/LoginRegister.jsx",
+        "src/components/AuthForm.jsx"
+      ],
+      "acceptance_criteria": [
+        "Pixel-perfect match Stitch screen",
+        "Tab switch work",
+        "Form validation on submit",
+        "Error messages below fields",
+        "Mock success redirect to home"
+      ],
+      "status": "DONE"
+    },
+    {
+      "id": "TASK-006",
+      "role": "frontend",
+      "model": "hermes-auto",
+      "title": "Thirtyspace 404 page (src/pages/NotFound.jsx)",
+      "source_screen": "thirtyspace_404_navigation_bento_variant",
+      "description": "Convert Stitch HTML. 404 text. Navigation bento grid. Ponytail: no analytics, add when tracking needed.",
+      "target_files": [
+        "src/pages/NotFound.jsx"
+      ],
+      "acceptance_criteria": [
+        "Pixel-perfect match Stitch screen",
+        "Bento grid links work",
+        "Responsive layout"
+      ],
+      "status": "DONE"
+    },
+    {
+      "id": "TASK-007",
+      "role": "frontend",
+      "model": "hermes-auto",
+      "title": "Shared UI components (src/components/)",
+      "source_screen": "thirtyspace_button_showcase, thirtyspace_badge_showcase, thirtyspace_loader_showcase, thirtyspace_component_showcase_inputs, thirtyspace_sidebar_showcase, thirtyspace_table_showcase",
+      "description": "Extract reusable components from Stitch screens. Buttons: primary, secondary, danger. Badges: status, count. Loader: spinner. Inputs: text, textarea, select. Sidebar: collapsible. Table: striped, hover. Ponytail: no theming system, CSS vars for colors.",
+      "target_files": [
+        "src/components/Button.jsx",
+        "src/components/Badge.jsx",
+        "src/components/Loader.jsx",
+        "src/components/Input.jsx",
+        "src/components/Sidebar.jsx",
+        "src/components/Table.jsx"
+      ],
+      "acceptance_criteria": [
+        "Components match Stitch showcase screens",
+        "Props for variants (e.g., Button primary/secondary)",
+        "Accessible: keyboard nav, ARIA labels",
+        "Responsive"
+      ],
+      "status": "DONE"
+    },
+    {
+      "id": "TASK-008",
+      "role": "frontend",
+      "model": "hermes-auto",
+      "title": "App shell, navigation bar, and router wiring (src/App.jsx)",
+      "source_screen": "",
+      "description": "Create app shell. Navigation bar: logo, menu items, user avatar. Router: React Router. Routes: all pages from TASK-001 to TASK-006. Ponytail: no lazy loading, add when bundle >200KB. Dark mode toggle: CSS vars, Zustand store.",
+      "target_files": [
+        "src/App.jsx",
+        "src/components/Navbar.jsx",
+        "src/store/useThemeStore.js"
+      ],
+      "acceptance_criteria": [
+        "All pages accessible via routes",
+        "Navigation bar sticky top",
+        "Active route highlighted",
+        "Dark mode toggle persist in localStorage",
+        "404 route catch-all"
+      ],
+      "status": "DONE"
+    }
+  ],
+  "status": "IN_PROGRESS",
+  "updated_at": "2026-08-20 11:47:19"
+}
