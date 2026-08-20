@@ -1,26 +1,24 @@
 {
   "project_name": "svralabs-kidlingo-neubrutalism",
-  "architecture_summary": "Modular React app. Pages in src/pages/. Shared UI in src/components/. CSS modules for styling. React Router v6 for navigation. No state management library (use React context for global state). Minimal dependencies: react, react-dom, react-router-dom. Build tool: Vite. TypeScript optional but recommended for maintainability.",
+  "architecture_summary": "Modular React app. Pages in src/pages/. Shared UI in src/components/. Neubrutalism CSS via Tailwind. Router: React Router. State: React Context. No Redux. Minimal deps. Mobile-first. No SSR.",
   "tickets": [
     {
       "id": "TASK-001",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Convert jastip_home_screen_mobile to React page component",
-      "source_screen": "jastip_home_screen_mobile",
-      "description": "Create src/pages/JastipHome.jsx. Replicate exact layout, colors, typography from Stitch HTML. Mobile-first responsive. Extract reusable components: Header, ProductCard, Footer. Use CSS modules for styling. Hardcode mock data for now.",
+      "title": "Build Jastip order form page (src/pages/JastipOrderForm.jsx)",
+      "source_screen": "jastip_order_form_mobile",
+      "description": "Convert Stitch HTML to React. Form fields: item name, quantity, destination, notes. Submit button. Validation: required fields. Error states. Mobile layout only. Neubrutalism styling via Tailwind.",
       "target_files": [
-        "src/pages/JastipHome.jsx",
-        "src/components/Header.jsx",
-        "src/components/ProductCard.jsx",
-        "src/components/Footer.jsx",
-        "src/pages/JastipHome.module.css"
+        "src/pages/JastipOrderForm.jsx",
+        "src/components/FormField.jsx"
       ],
       "acceptance_criteria": [
-        "Pixel-perfect match to Stitch design on mobile viewport (375px width)",
-        "All interactive elements (buttons, links) visually match hover/active states",
-        "No console errors",
-        "Responsive: scales to 768px width without horizontal scroll"
+        "Form render match Stitch screen pixel-perfect",
+        "Validation errors show on submit",
+        "Submit button disabled during API call",
+        "Mobile viewport only (no desktop layout)",
+        "Tailwind classes match Neubrutalism design (bold borders, high contrast, no rounded corners)"
       ],
       "status": "DONE"
     },
@@ -28,20 +26,19 @@
       "id": "TASK-002",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Convert jastip_order_form_mobile to React page component",
-      "source_screen": "jastip_order_form_mobile",
-      "description": "Create src/pages/JastipOrderForm.jsx. Replicate form fields, labels, validation states. Extract reusable components: OrderFormField, OrderSummary. Use native HTML5 form validation. CSS modules for styling. Hardcode mock data for order summary.",
+      "title": "Build Jastip home screen (src/pages/JastipHome.jsx)",
+      "source_screen": "jastip_home_screen_mobile",
+      "description": "Convert Stitch HTML. Hero banner. Trip catalog grid. Search bar. Category filters. Neubrutalism styling via Tailwind. Mobile layout only.",
       "target_files": [
-        "src/pages/JastipOrderForm.jsx",
-        "src/components/OrderFormField.jsx",
-        "src/components/OrderSummary.jsx",
-        "src/pages/JastipOrderForm.module.css"
+        "src/pages/JastipHome.jsx",
+        "src/components/TripCard.jsx"
       ],
       "acceptance_criteria": [
-        "All form fields match Stitch design (input types, placeholders, labels)",
-        "Validation states (error, success) visually identical",
-        "Form submission disabled until required fields filled",
-        "Mobile viewport only (375px width)"
+        "Screen render match Stitch screen pixel-perfect",
+        "Search bar functional (client-side filtering)",
+        "Category filters toggle active state",
+        "Trip cards link to catalog pages",
+        "Mobile viewport only"
       ],
       "status": "DONE"
     },
@@ -49,20 +46,19 @@
       "id": "TASK-003",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Convert jastip_catalog_jepang_trip_1 and jastip_catalog_jepang_trip_2 to React page component",
-      "source_screen": "jastip_catalog_jepang_trip_1,jastip_catalog_jepang_trip_2",
-      "description": "Create src/pages/JastipCatalog.jsx. Combine both Stitch screens into single page with tabbed navigation. Extract reusable components: CatalogItem, FilterBar. CSS modules for styling. Hardcode mock catalog data.",
+      "title": "Build Jastip catalog pages (src/pages/JastipCatalogJepangTrip1.jsx, src/pages/JastipCatalogJepangTrip2.jsx)",
+      "source_screen": "jastip_catalog_jepang_trip_1, jastip_catalog_jepang_trip_2",
+      "description": "Convert both Stitch screens. Trip details. Item grid. Pagination. Neubrutalism styling via Tailwind. Mobile layout only.",
       "target_files": [
-        "src/pages/JastipCatalog.jsx",
-        "src/components/CatalogItem.jsx",
-        "src/components/FilterBar.jsx",
-        "src/pages/JastipCatalog.module.css"
+        "src/pages/JastipCatalogJepangTrip1.jsx",
+        "src/pages/JastipCatalogJepangTrip2.jsx",
+        "src/components/ItemCard.jsx"
       ],
       "acceptance_criteria": [
-        "Tab navigation switches between trip 1 and trip 2 content",
-        "Catalog items match Stitch design (image, title, price, badge)",
-        "Filter bar functional (visual feedback only, no backend integration)",
-        "Responsive: mobile (375px) and tablet (768px) viewports"
+        "Both screens render match Stitch pixel-perfect",
+        "Pagination buttons functional (client-side)",
+        "Item cards link to order form",
+        "Mobile viewport only"
       ],
       "status": "DONE"
     },
@@ -70,21 +66,18 @@
       "id": "TASK-004",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Convert thirtyspace_login_register_mobile to React page component",
-      "source_screen": "thirtyspace_login_register_mobile",
-      "description": "Create src/pages/AuthPage.jsx. Replicate login/register tabs, form fields, social login buttons. Extract reusable components: AuthForm, SocialLoginButton. Use native HTML5 form validation. CSS modules for styling. No backend integration yet.",
+      "title": "Build 30Space showcase pages (src/pages/ThirtySpaceShowcase.jsx)",
+      "source_screen": "thirtyspace_table_showcase, thirtyspace_sidebar_showcase, thirtyspace_loader_showcase, thirtyspace_badge_showcase, thirtyspace_button_showcase, thirtyspace_component_showcase_inputs",
+      "description": "Combine all Stitch showcase screens into single page. Tabs for each component type. Neubrutalism styling via Tailwind. Mobile-first. Interactive demos for inputs, buttons.",
       "target_files": [
-        "src/pages/AuthPage.jsx",
-        "src/components/AuthForm.jsx",
-        "src/components/SocialLoginButton.jsx",
-        "src/pages/AuthPage.module.css"
+        "src/pages/ThirtySpaceShowcase.jsx",
+        "src/components/ShowcaseTab.jsx"
       ],
       "acceptance_criteria": [
-        "Tab navigation switches between login/register forms",
-        "Form fields match Stitch design (input types, placeholders, labels)",
-        "Social login buttons visually identical",
-        "Form submission disabled until required fields filled",
-        "Mobile viewport only (375px width)"
+        "All component types render match Stitch",
+        "Tabs switch content without reload",
+        "Interactive demos functional (inputs, buttons)",
+        "Mobile-first layout"
       ],
       "status": "DONE"
     },
@@ -92,18 +85,16 @@
       "id": "TASK-005",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Convert thirtyspace_404_navigation_bento_variant to React page component",
-      "source_screen": "thirtyspace_404_navigation_bento_variant",
-      "description": "Create src/pages/NotFound.jsx. Replicate 404 layout, navigation bento, and error message. Extract reusable component: NavigationBento. CSS modules for styling. Hardcode navigation links.",
+      "title": "Build 30Space hero section (src/pages/ThirtySpaceHero.jsx)",
+      "source_screen": "thirtyspace_hero_section",
+      "description": "Convert Stitch HTML. Hero banner. CTA buttons. Neubrutalism styling via Tailwind. Mobile-first.",
       "target_files": [
-        "src/pages/NotFound.jsx",
-        "src/components/NavigationBento.jsx",
-        "src/pages/NotFound.module.css"
+        "src/pages/ThirtySpaceHero.jsx"
       ],
       "acceptance_criteria": [
-        "404 page matches Stitch design (error message, bento layout)",
-        "Navigation bento links functional (route to respective pages)",
-        "Responsive: mobile (375px) and desktop (1200px) viewports"
+        "Render match Stitch screen pixel-perfect",
+        "CTA buttons link to correct pages",
+        "Mobile-first layout"
       ],
       "status": "DONE"
     },
@@ -111,28 +102,17 @@
       "id": "TASK-006",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Create shared UI component library from showcase screens",
-      "source_screen": "thirtyspace_button_showcase,thirtyspace_badge_showcase,thirtyspace_component_showcase_inputs,thirtyspace_loader_showcase,thirtyspace_table_showcase,thirtyspace_sidebar_showcase",
-      "description": "Create src/components/ui/ directory. Implement reusable components: Button, Badge, Input, Loader, Table, Sidebar. Use CSS modules for styling. Support all variants shown in Stitch showcase screens. No business logic.",
+      "title": "Build login/register page (src/pages/LoginRegister.jsx)",
+      "source_screen": "thirtyspace_login_register_mobile",
+      "description": "Convert Stitch HTML. Login form. Register form. Toggle between forms. Validation: email format, password length. Error states. Neubrutalism styling via Tailwind. Mobile layout only.",
       "target_files": [
-        "src/components/ui/Button.jsx",
-        "src/components/ui/Button.module.css",
-        "src/components/ui/Badge.jsx",
-        "src/components/ui/Badge.module.css",
-        "src/components/ui/Input.jsx",
-        "src/components/ui/Input.module.css",
-        "src/components/ui/Loader.jsx",
-        "src/components/ui/Loader.module.css",
-        "src/components/ui/Table.jsx",
-        "src/components/ui/Table.module.css",
-        "src/components/ui/Sidebar.jsx",
-        "src/components/ui/Sidebar.module.css"
+        "src/pages/LoginRegister.jsx"
       ],
       "acceptance_criteria": [
-        "All component variants match Stitch showcase designs",
-        "Components support all props needed for showcase variants (size, color, state)",
-        "No console errors",
-        "Components reusable across all pages"
+        "Forms render match Stitch pixel-perfect",
+        "Toggle between login/register",
+        "Validation errors show on submit",
+        "Mobile viewport only"
       ],
       "status": "DONE"
     },
@@ -140,18 +120,16 @@
       "id": "TASK-007",
       "role": "frontend",
       "model": "hermes-auto",
-      "title": "Convert thirtyspace_hero_section to React page component",
-      "source_screen": "thirtyspace_hero_section",
-      "description": "Create src/pages/Home.jsx. Replicate hero section layout, typography, CTA buttons. Extract reusable component: HeroSection. CSS modules for styling. Hardcode content.",
+      "title": "Build 404 page (src/pages/NotFound.jsx)",
+      "source_screen": "thirtyspace_404_navigation_bento_variant",
+      "description": "Convert Stitch HTML. 404 message. Navigation links. Neubrutalism styling via Tailwind. Mobile-first.",
       "target_files": [
-        "src/pages/Home.jsx",
-        "src/components/HeroSection.jsx",
-        "src/pages/Home.module.css"
+        "src/pages/NotFound.jsx"
       ],
       "acceptance_criteria": [
-        "Hero section matches Stitch design (background, typography, buttons)",
-        "CTA buttons visually identical (hover/active states)",
-        "Responsive: mobile (375px) and desktop (1200px) viewports"
+        "Render match Stitch screen pixel-perfect",
+        "Navigation links functional",
+        "Mobile-first layout"
       ],
       "status": "DONE"
     },
@@ -161,23 +139,22 @@
       "model": "hermes-auto",
       "title": "App shell, navigation bar, and router wiring (src/App.jsx)",
       "source_screen": "",
-      "description": "Create src/App.jsx. Implement app shell with navigation bar. Set up React Router v6 routes for all pages. Navigation bar matches Stitch design (mobile menu, desktop layout). Use lazy loading for routes. Add 404 route.",
+      "description": "Create app shell. Navigation bar. React Router setup. Route config for all pages. Neubrutalism styling via Tailwind. Mobile-first. No desktop layout.",
       "target_files": [
         "src/App.jsx",
-        "src/App.module.css",
+        "src/components/NavBar.jsx",
         "src/main.jsx"
       ],
       "acceptance_criteria": [
-        "All pages accessible via navigation bar",
-        "Navigation bar matches Stitch design (mobile/desktop variants)",
-        "Routes lazy-loaded",
-        "404 page shown for unknown routes",
-        "No console errors",
-        "Responsive: mobile (375px) and desktop (1200px) viewports"
+        "All pages accessible via navigation",
+        "Active route highlighted in navbar",
+        "404 page show for unknown routes",
+        "Mobile-first layout",
+        "No console errors"
       ],
       "status": "DONE"
     }
   ],
   "status": "IN_PROGRESS",
-  "updated_at": "2026-08-20 15:32:49"
+  "updated_at": "2026-08-20 19:10:09"
 }

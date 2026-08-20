@@ -1,16 +1,46 @@
-import React from 'react';
-import OrderFormField from '../components/OrderFormField';
-import OrderSummary from '../components/OrderSummary';
-import styles from './JastipOrderForm.module.css';
+import React, { useState } from 'react';
+import FormField from '../components/FormField';
 
 export default function JastipOrderForm() {
+  const [formData, setFormData] = useState({
+    nama: '',
+    telepon: '',
+    alamat: ''
+  });
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [id]: value
+    }));
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formData.nama) newErrors.nama = 'Nama penerima wajib diisi';
+    if (!formData.telepon) newErrors.telepon = 'No. telepon wajib diisi';
+    if (!formData.alamat) newErrors.alamat = 'Alamat wajib diisi';
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission
+    if (validateForm()) {
+      setIsSubmitting(true);
+      // Simulate API call
+      setTimeout(() => {
+        setIsSubmitting(false);
+        alert('Order submitted successfully!');
+      }, 2000);
+    }
   };
 
   return (
-    <div className={styles.formContainer}>
+    <div className="min-h-screen bg-background">
       <header className="fixed top-0 w-full z-50 bg-primary border-b-2 border-on-background shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center px-margin h-16 w-full text-on-primary">
         <button className="mr-4 active:translate-x-[2px] active:translate-y-[2px] transition-all">
           <span className="material-symbols-outlined text-3xl">arrow_back</span>
@@ -18,68 +48,98 @@ export default function JastipOrderForm() {
         <h1 className="font-headline-main-mobile text-[24px] font-extrabold uppercase tracking-tight">New Order</h1>
       </header>
 
-      <main>
-        <section className={styles.productCard}>
-          <div className={styles.productImage}>
+      <main className="mt-24 px-margin space-y-8">
+        <section className="neubrutalist-shadow bg-surface border-2 border-on-background rounded-xl p-md flex gap-4 overflow-hidden">
+          <div className="w-24 h-24 shrink-0 rounded-lg border-2 border-on-background overflow-hidden">
             <img
+              className="w-full h-full object-cover"
+              alt="Hada Labo Lotion bottle"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8r_2NJHnVJVk2LuUO5Q35KNiqOJ07xZiM3JOPab8lF7HrmnLAM1Q4UceufyRIt7g0Y_z3clsv7jpFBdmtql64mlNKyXVyqc5HRa5ZGVIDsrmy3FAcVgtpHnYHmJ_1RTRf0qRi5FhVTIT_w08454Nf_gPuQ3YeJWBR3LmnwcHhI-yrPwvSGYP3SZ5vHSEeSYWQra5XPAtt7Nz59QlpdLNCgr2dipNfmoOTHT07DL6LLXtMBw90MXOF"
-              alt="Hada Labo Lotion"
             />
           </div>
-          <div className={styles.productInfo}>
+          <div className="flex-1 flex flex-col justify-between">
             <div>
-              <h2 className={styles.productTitle}>Hada Labo Lotion</h2>
-              <p className={styles.productPrice}>Rp245.000</p>
-              <span className={styles.productFee}>Fee 10%</span>
+              <h2 className="font-heading-card text-heading-card leading-none mb-1">Hada Labo Lotion</h2>
+              <p className="text-on-surface-variant font-bold">Rp245.000</p>
+              <span className="inline-block mt-1 px-2 py-0.5 bg-secondary-container text-on-secondary-container text-xs font-bold border border-on-background rounded-full">Fee 10%</span>
             </div>
-            <div className={styles.quantityContainer}>
-              <button className={`${styles.quantityButton} active`}>
+            <div className="flex items-center gap-3 mt-3">
+              <button className="w-8 h-8 rounded-full border-2 border-on-background bg-surface-container-high flex items-center justify-center neubrutalist-shadow-sm active-press">
                 <span className="material-symbols-outlined text-sm font-bold">remove</span>
               </button>
-              <span className={styles.quantityValue}>1</span>
-              <button className={`${styles.quantityButton} bg-primary-container`}>
+              <span className="font-label-bold text-label-bold text-lg">1</span>
+              <button className="w-8 h-8 rounded-full border-2 border-on-background bg-primary-container flex items-center justify-center neubrutalist-shadow-sm active-press">
                 <span className="material-symbols-outlined text-sm font-bold">add</span>
               </button>
             </div>
           </div>
         </section>
 
-        <section className={styles.formSection}>
-          <h3 className={styles.sectionTitle}>Data Penerima</h3>
-          <form onSubmit={handleSubmit}>
-            <div className="space-y-6">
-              <OrderFormField
-                label="Nama Penerima"
-                id="nama"
-                type="text"
-                placeholder="Masukkan nama lengkap"
-              />
-              <OrderFormField
-                label="No. Telepon Penerima"
-                id="telepon"
-                type="tel"
-                placeholder="0812xxxxxx"
-              />
-              <OrderFormField
-                label="Alamat Lengkap"
-                id="alamat"
-                type="textarea"
-                placeholder="Jl. Anggrek No. 12, Jakarta Selatan..."
-                rows={4}
-              />
-            </div>
+        <section className="space-y-4">
+          <h3 className="font-headline-main-mobile text-[20px] font-extrabold uppercase tracking-tighter">Data Penerima</h3>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <FormField
+              label="Nama Penerima"
+              id="nama"
+              type="text"
+              placeholder="Masukkan nama lengkap"
+              value={formData.nama}
+              onChange={handleChange}
+              error={errors.nama}
+            />
+            <FormField
+              label="No. Telepon Penerima"
+              id="telepon"
+              type="tel"
+              placeholder="0812xxxxxx"
+              value={formData.telepon}
+              onChange={handleChange}
+              error={errors.telepon}
+            />
+            <FormField
+              label="Alamat Lengkap"
+              id="alamat"
+              type="textarea"
+              placeholder="Jl. Anggrek No. 12, Jakarta Selatan..."
+              value={formData.alamat}
+              onChange={handleChange}
+              error={errors.alamat}
+              rows={4}
+            />
           </form>
         </section>
 
-        <OrderSummary />
+        <section className="neubrutalist-shadow bg-surface border-2 border-on-background rounded-xl p-md space-y-4">
+          <h4 className="font-label-bold text-label-bold uppercase border-b-2 border-outline-variant pb-2">Rincian Pesanan</h4>
+          <div className="space-y-2">
+            <div className="flex justify-between items-center">
+              <span className="text-on-surface-variant">Subtotal Produk</span>
+              <span className="font-bold">Rp245.000</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-on-surface-variant">Fee Jastip (10%)</span>
+              <span className="font-bold">Rp24.500</span>
+            </div>
+          </div>
+          <div className="bg-surface-container-low border-2 border-dashed border-on-background p-3 rounded-lg flex gap-3">
+            <span className="material-symbols-outlined text-primary-container bg-on-background rounded-full p-1 text-[16px]" style={{ fontVariationSettings: "'FILL' 1" }}>info</span>
+            <p className="text-[12px] leading-tight font-medium">
+              Ongkir & packing akan ditambahkan di invoice final oleh admin setelah barang siap dikirim.
+            </p>
+          </div>
+        </section>
       </main>
 
-      <footer className={styles.stickyFooter}>
-        <div className={styles.totalContainer}>
-          <span className={styles.totalLabel}>Total Estimasi</span>
-          <span className={styles.totalValue}>Rp269.500</span>
+      <footer className="fixed bottom-0 w-full z-50 bg-surface border-t-2 border-on-background shadow-[0px_-4px_0px_0px_rgba(0,0,0,1)] px-margin py-4 flex items-center justify-between gap-4">
+        <div className="flex flex-col">
+          <span className="text-[12px] font-bold uppercase text-on-surface-variant leading-none">Total Estimasi</span>
+          <span className="font-headline-main-mobile text-[24px] font-extrabold text-primary leading-tight">Rp269.500</span>
         </div>
-        <button className={styles.submitButton}>
+        <button
+          className={`bg-primary-container text-on-primary-container font-label-bold text-[16px] px-8 py-4 rounded-full border-2 border-on-background shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all uppercase tracking-wider flex items-center gap-2 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+          onClick={handleSubmit}
+          disabled={isSubmitting}
+        >
           Kirim Order
           <span className="material-symbols-outlined">send</span>
         </button>

@@ -4,18 +4,24 @@ import { AuthProvider } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
 import { ThemeProvider } from './context/ThemeContext';
 import ErrorBoundary from './components/ErrorBoundary';
-import Home from './pages/Home';
-import AuthPage from './pages/AuthPage';
+import ThirtySpaceHero from './pages/ThirtySpaceHero';
+import JastipCatalogJepangTrip1 from './pages/JastipCatalogJepangTrip1';
+import ThirtySpaceShowcase from './pages/ThirtySpaceShowcase';
 import NotFound from './pages/NotFound';
 import JastipOrderForm from './pages/JastipOrderForm';
+import JastipHome from './pages/JastipHome';
+import LoginRegister from './pages/LoginRegister';
 
 function ScreenBar() {
   const loc = useLocation();
   const navs = [
-    { path: '/', label: 'Home' },
-    { path: '/authpage', label: 'AuthPage' },
+    { path: '/', label: 'ThirtySpaceHero' },
+    { path: '/jastipcatalogjepangtrip1', label: 'JastipCatalogJepangTrip1' },
+    { path: '/thirtyspaceshowcase', label: 'ThirtySpaceShowcase' },
     { path: '/notfound', label: 'NotFound' },
-    { path: '/jastiporderform', label: 'JastipOrderForm' }
+    { path: '/jastiporderform', label: 'JastipOrderForm' },
+    { path: '/jastiphome', label: 'JastipHome' },
+    { path: '/loginregister', label: 'LoginRegister' }
   ];
 
   return (
@@ -51,11 +57,14 @@ export default function App() {
               <ScreenBar />
               <div className="pt-10 min-h-screen">
                 <Routes>
-                  <Route path='/' element={<Home />} />
-        <Route path='/authpage' element={<AuthPage />} />
+                  <Route path='/' element={<ThirtySpaceHero />} />
+        <Route path='/jastipcatalogjepangtrip1' element={<JastipCatalogJepangTrip1 />} />
+        <Route path='/thirtyspaceshowcase' element={<ThirtySpaceShowcase />} />
         <Route path='/notfound' element={<NotFound />} />
         <Route path='/jastiporderform' element={<JastipOrderForm />} />
-                  <Route path="*" element={<Home />} />
+        <Route path='/jastiphome' element={<JastipHome />} />
+        <Route path='/loginregister' element={<LoginRegister />} />
+                  <Route path="*" element={<ThirtySpaceHero />} />
                 </Routes>
               </div>
             </BrowserRouter>
